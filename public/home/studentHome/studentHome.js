@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   logoutBtn.addEventListener('click', () => {
     localStorage.clear(); 
-    window.location.href = '../login/login.html'; 
+    window.location.href = '../../login/login.html'; 
   });
   mainTitle.textContent = `Reading Rooms in ${city || 'Your City'}`;
 
