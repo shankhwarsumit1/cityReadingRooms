@@ -516,24 +516,77 @@ footer {
 
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
   }
 
   .nav-btn, .logout-btn {
-    padding: 0.3rem 0.6rem;
+    width: 48%;
+    text-align: center;
+    padding: 0.4rem;
     font-size: 0.75rem;
   }
 
   .page-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
   }
 
   .room-info {
-    padding: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem;
+  }
+
+  .room-info-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #room-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #room-details {
+    font-size: 0.8rem;
+  }
+
+  .seat-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .card,
+  .card.compact,
+  .full-width {
+    width: 100%;
+    max-width: 100%;
   }
 
   .card h2 {
     font-size: 1rem;
+  }
+
+  .scrollable-table {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 400px; 
   }
 
   th, td {
@@ -541,7 +594,42 @@ footer {
     font-size: 0.75rem;
   }
 
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+  }
+
   .modal-content h3 {
     font-size: 1.2rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .submit-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .social-links {
+    justify-content: center;
   }
 }
