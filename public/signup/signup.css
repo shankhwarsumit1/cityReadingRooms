@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.signup-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px; /* Increased width for better spacing */
+  text-align: center;
+}
+
+.signup-card h1 {
+  color: #ff6b6b;
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.signup-card h2 {
+  color: #4ecdc4;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.signup-card p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper i {
+  position: absolute;
+  left: 12px;
+  color: #ff6b6b;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 0.8rem 0.8rem 2.5rem; /* Adjusted padding for icon */
+  border: none;
+  border-bottom: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #f9f9f9;
+  transition: border-bottom-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-bottom-color: #ff6b6b;
+  box-shadow: 0 2px 4px rgba(255, 107, 107, 0.2);
+}
+
+.form-group input[readonly] {
+  background: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #e55a5a;
+  transform: translateY(-2px);
+}
+
+.login-link {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.login-link a {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.message.success {
+  color: #4ecdc4;
+}
+
+.message.error {
+  color: #ff6b6b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signup-card {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .signup-card h1 {
+    font-size: 2rem;
+  }
+
+  .signup-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 0.7rem 0.7rem 0.7rem 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-card {
+    padding: 1rem;
+  }
+
+  .signup-card h1 {
+    font-size: 1.8rem;
+  }
+
+  .signup-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 0.6rem 0.6rem 0.6rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CityReadingRooms - Login</title>
+  <link rel="stylesheet" href="./login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="login-card">
+      <h1>CityReadingRooms</h1>
+      <h2>Log In</h2>
+      <p>Access your Reading Room account</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="identifier">Email or Phone</label>
+          <div class="input-wrapper">
+            <i class="fas fa-user"></i>
+            <input type="text" id="identifier" name="identifier" required placeholder="Enter your email or phone number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+          </div>
+        </div>
+        <button type="submit" class="btn">Log In</button>
+      </form>
+      <p class="signup-link">Don't have an account? <a href="../signup/signup.html">Sign up</a></p>
+      <div id="message" class="message"></div>
+    </div>
+  </div>
+  <script src="../main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./login.js"></script>
+</body>
+</html>

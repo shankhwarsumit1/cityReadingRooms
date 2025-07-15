@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Room Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <nav>
+          <a href="../myProfile/myProfile.html" class="nav-btn">My Profile</a>
+          <button class="logout-btn">Logout</button>
+        </nav>
+        <h1>City Reading Rooms</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 id="room-name" class="page-title">Reading Room Name</h1>
+    <div class="room-info">
+      <div class="room-info-left">
+        <img id="room-image" src="" alt="Reading Room Image">
+        <div id="room-details"></div>
+      </div>
+    </div>
+
+    <div class="seat-sections">
+      <div class="left-section">
+        <section id="reserved-seats" class="card">
+          <h2>Reserved Seats</h2>
+          <div class="scrollable-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Seat Number</th>
+                  <th>Student</th>
+                  <th>Payment Date</th>
+                  <th>Due Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="reserved-seats-list"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <div class="right-section">
+        <section id="vacant-seats" class="card compact">
+          <h2>Vacant Seats</h2>
+          <div class="scrollable-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Seat Number</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="vacant-seats-list"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <section id="payment-pending-seats" class="card full-width">
+        <h2>Payment Pending Seats</h2>
+        <div class="scrollable-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Seat Number</th>
+                <th>Student</th>
+                <th>phone</th>
+                <th>Due Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="payment-pending-seats-list"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div id="reserve-seat-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">×</span>
+        <h3>Reserve Seat</h3>
+        <form id="reserve-seat-form">
+          <div class="form-group">
+            <label for="studentPhone">Student Phone</label>
+            <input type="text" id="studentPhone" name="studentPhone" required>
+          </div>
+          <div class="form-group">
+            <label for="feePaymentDate">Fee Payment Date</label>
+            <input type="date" id="feePaymentDate" name="feePaymentDate" required>
+          </div>
+          <div class="form-group">
+            <label for="feeAmount">Fee Amount</label>
+            <input type="number" id="feeAmount" name="feeAmount" required>
+          </div>
+          <div class="form-group">
+            <label for="plan">Plan</label>
+            <select id="plan" name="plan" required>
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-btn">Reserve Seat</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact us</h3>
+          <p>phone: 7355467233</p>
+          <p>Email: <a href="mailto:shankhwarsumit117@gmail.com">shankhwarsumit117@gmail.com</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li>About Us</li>
+            <li>Contact</li>
+            <li>Terms & Conditions</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">© 2025 CityReadingRooms. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="../main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./dashboard.js"></script>
+</body>
+</html>

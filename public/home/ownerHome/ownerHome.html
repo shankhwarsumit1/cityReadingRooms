@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CityReadingRooms - Owner Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./ownerHome.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>City Reading Rooms</h1>
+      <nav>
+        <a href="../../myProfile/myProfile.html" class="nav-btn">My Profile</a>
+        <button class="logout-btn">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="page-title">Welcome</h2>
+    <div class="main-content">
+      <div class="rooms-container">
+        <div id="no-rooms" class="no-rooms"></div>
+        <div class="rooms-list-container">
+          <h3 class="rooms-list-title" hidden>Your Reading Rooms</h3>
+          <div id="rooms-list" class="rooms-list"></div>
+        </div>
+      </div>
+
+      <div class="register-container">
+        <button id="register-btn" class="register-btn">Register New Reading Room</button>
+      </div>
+    </div>
+
+    <div id="register-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal" class="close">×</span>
+        <h3>Register Your Reading Room</h3>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="readingRoomName">Reading Room Name *</label>
+            <input type="text" id="readingRoomName" name="readingRoomName" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Address *</label>
+            <input type="text" id="address" name="address" required>
+          </div>
+          <div class="form-group">
+            <label for="city">City *</label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="contact">Contact Number *</label>
+            <input type="tel" id="contact" name="contact" required>
+          </div>
+          <div class="form-group">
+            <label for="totalSeats">Total Seats *</label>
+            <input type="number" id="totalSeats" name="totalSeats" min="1" required>
+          </div>
+          <div class="form-group time-group">
+            <div class="time-input">
+              <label for="openTime">Open Time *</label>
+              <input type="time" id="openTime" name="openTime" required>
+            </div>
+            <div class="time-input">
+              <label for="closeTime">Close Time *</label>
+              <input type="time" id="closeTime" name="closeTime" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="monthlyFee">Monthly Fee (₹) *</label>
+            <input type="number" id="monthlyFee" name="monthlyFee" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="threeMonthsFee">Three Months Fee (₹) *</label>
+            <input type="number" id="threeMonthsFee" name="threeMonthsFee" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="facilities">Facilities (comma-separated, e.g., AC,WiFi)</label>
+            <input type="text" id="facilities" name="facilities">
+          </div>
+          <div class="form-group">
+            <label for="photos">Upload Photos</label>
+<input type="file" id="photo" name="photo" accept="image/*">
+          </div>
+          <button type="submit" class="submit-btn">Register</button>       
+           <div id="form-error" class="form-error"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+ <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact us</h3>
+          <p>phone: 7355467233</p>
+          <p>Email: <a href="mailto:shankhwarsumit117@gmail.com">shankhwarsumit117@gmail.com</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li>About Us</li>
+            <li>Contact</li>
+            <li>Terms & Conditions</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">© 2025 CityReadingRooms. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../../main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./ownerHome.js"></script>
+</body>
+</html>

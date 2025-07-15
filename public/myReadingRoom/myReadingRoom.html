@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CityReadingRooms - My Reading Room</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./myReadingRoom.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>City Reading Rooms</h1>
+      <nav>
+        <a href="../home/studentHome/studentHome.html" class="nav-btn">All Rooms</a>
+        <a href="../myProfile/myProfile.html" class="nav-btn">My Profile</a>
+        <button class="logout-btn">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 id="room-title" class="room-title"></h2>
+    <div id="not-enrolled" class="not-enrolled"></div>
+    <div id="room-content" class="room-content">
+      <div class="room-photo-box">
+        <img id="room-photo" src="" alt="Reading Room">
+      </div>
+      <div class="room-details-box">
+        <h3>Room Details</h3>
+        <div id="room-info"></div>
+      </div>
+      <div class="seat-details-box">
+        <h3>Seat Details</h3>
+        <div id="fee-status" class="fee-status"></div>
+        <div id="seat-info"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+       <div class="footer-section">
+          <h3>Contact us</h3>
+          <p>phone: 7355467233</p>
+          <p>Email: <a href="mailto:shankhwarsumit117@gmail.com">shankhwarsumit117@gmail.com</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li>About Us</li>
+            <li>Contact</li>
+            <li>Terms & Conditions</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">© 2025 CityReadingRooms. All rights reserved.</p>
+    </div>
+  </footer>
+ <script src="../main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./myReadingRoom.js"></script>
+</body>
+</html>
