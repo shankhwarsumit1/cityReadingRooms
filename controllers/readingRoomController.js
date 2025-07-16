@@ -15,7 +15,6 @@ const registerReadingRoom = async (req, res) => {
     session = await mongoose.startSession();
     session.startTransaction();
 
-    // destructure fields from req.body
     let {
       readingRoomName,
       address,
@@ -30,7 +29,6 @@ const registerReadingRoom = async (req, res) => {
 
     const user = req.user;
 
-    // Parse JSON strings
     if (typeof timings === "string") {
       timings = JSON.parse(timings);
     }
@@ -201,8 +199,14 @@ const getAllReadingRooms = async (req, res) => {
     const skip = (page - 1) * limit;
     const pipeline = [];
 
-    if (userLocation){
-pipeline.push({
+     if (
+     location &&
+    (location.type === "Point" )&&
+    Array.isArray(location.coordinates) &&
+    (location.coordinates.length === 2)&&
+    location.coordinates[0] !==null
+  ) {
+    pipeline.push({
       $geoNear: {
         near: {
           type: "Point",
