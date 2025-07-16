@@ -190,39 +190,40 @@ const editReadingRoom = async (req, res) => {
 const getAllReadingRooms = async (req, res) => {
   try {
     const userLocation = req.user.location;
-    const userCity = req.user.city;
+    const userCity = req.user.city?.trim();  
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
-    const {
-      search
-    } = req.query;
+    const { search } = req.query;
     const skip = (page - 1) * limit;
+
     const pipeline = [];
 
-     if (
-     userLocation &&
-    (userLocation.type === "Point" )&&
-    Array.isArray(userLocation.coordinates) &&
-    (userLocation.coordinates.length === 2)&&
-    userLocation.coordinates[0] !==null
-  ) {
-    pipeline.push({
-      $geoNear: {
-        near: {
-          type: "Point",
-          coordinates: userLocation.coordinates,
+    const isValidLocation =
+      userLocation &&
+      userLocation.type === "Point" &&
+      Array.isArray(userLocation.coordinates) &&
+      userLocation.coordinates.length === 2 &&
+      typeof userLocation.coordinates[0] === "number" &&
+      typeof userLocation.coordinates[1] === "number";
+
+    if (isValidLocation) {
+      pipeline.push({
+        $geoNear: {
+          near: {
+            type: "Point",
+            coordinates: userLocation.coordinates,
+          },
+          distanceField: "distance",
+          spherical: true,
+          query: {
+            city: userCity
+          }
         },
-        distanceField: "distance",
-        spherical: true,
-        query: {
-          city: userCity
-        }
-      },
-    });
-    }else if (userCity) {
+      });
+    } else if (userCity) {
       pipeline.push({
         $match: {
-          city: userCity
+          city: { $regex: `^${userCity}$`, $options: "i" }, 
         },
       });
     }
@@ -240,15 +241,10 @@ const getAllReadingRooms = async (req, res) => {
 
     pipeline.push({
       $facet: {
-        metadata: [{
-          $count: "total"
-        }],
-        data: [{
-            $skip: skip
-          },
-          {
-            $limit: limit
-          }
+        metadata: [{ $count: "total" }],
+        data: [
+          { $skip: skip },
+          { $limit: limit }
         ]
       }
     });
@@ -270,13 +266,14 @@ const getAllReadingRooms = async (req, res) => {
       }
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({
       success: false,
       error: error.message
     });
   }
 };
+
 
 const getVacantSeats = async (req, res) => {
   try {
