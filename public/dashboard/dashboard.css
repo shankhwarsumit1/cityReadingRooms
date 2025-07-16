@@ -154,7 +154,7 @@ main {
 }
 
 .btn {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -176,11 +176,11 @@ main {
 
 .btn-danger {
   color: #fff;
-  background: #e74c3c;
+  background: #ee6859;
 }
 
 .btn-danger:hover {
-  background: #c0392b;
+  background: #3cd818;
   transform: scale(1.03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -223,12 +223,12 @@ main {
 }
 
 table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
 }
 
 th, td {
-  padding: 0.5rem;
+  padding: 0.3rem;
   text-align: left;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -237,7 +237,7 @@ th {
   background: rgba(255, 255, 255, 0.8);
   font-weight: 600;
   color: #ff4b3e;
-  font-size: 0.85rem;
+  font-size: 0.80rem;
 }
 
 td {
@@ -421,6 +421,9 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+  background-color: rgb(223, 130, 130);
+}
   .header-content {
     flex-direction: column;
     align-items: flex-start;
@@ -596,8 +599,8 @@ footer {
   .card,
   .card.compact,
   .full-width {
-    width: 90%;
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
   }
 
   .card h2 {
@@ -609,12 +612,12 @@ footer {
   }
 
   table {
-    min-width: 400px; 
+    min-width: 300px; 
   }
 
   th, td {
-    padding: 0.3rem;
-    font-size: 0.75rem;
+    padding: 0.2rem;
+    font-size: 0.60rem;
   }
 
   .modal-content {
@@ -637,8 +640,8 @@ footer {
   }
 
   .submit-btn {
-    font-size: 0.70rem;
-    padding: 0.3rem;
+    font-size: 0.85rem;
+    padding: 0.5rem;
   }
 
   .footer-content {
