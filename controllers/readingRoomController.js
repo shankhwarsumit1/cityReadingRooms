@@ -200,11 +200,11 @@ const getAllReadingRooms = async (req, res) => {
     const pipeline = [];
 
      if (
-     location &&
-    (location.type === "Point" )&&
-    Array.isArray(location.coordinates) &&
-    (location.coordinates.length === 2)&&
-    location.coordinates[0] !==null
+     userLocation &&
+    (userLocation.type === "Point" )&&
+    Array.isArray(userLocation.coordinates) &&
+    (userLocation.coordinates.length === 2)&&
+    userLocation.coordinates[0] !==null
   ) {
     pipeline.push({
       $geoNear: {
@@ -270,6 +270,7 @@ const getAllReadingRooms = async (req, res) => {
       }
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       success: false,
       error: error.message
