@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const signupForm = document.getElementById('signupForm');
   const messageDiv = document.getElementById('message');
+  const loadingOverlay = document.getElementById('loadingOverlay');
   const URL = `${BASE_URL}/signup`;
 
   signupForm.addEventListener('submit', async (e) => {
@@ -12,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let latitude = null;
       let longitude = null;
-
-      // Wrap geolocation in a Promise
+      loadingOverlay.classList.remove('hidden');
       if (navigator.geolocation) {
         const position = await new Promise((resolve, reject) => {
           navigator.geolocation.getCurrentPosition(resolve, reject);
