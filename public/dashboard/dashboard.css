@@ -516,11 +516,10 @@ footer {
 
 @media (max-width: 480px) {
   body {
-    background: #ff4b3e; /* Remove gradient and use a solid background */
-  }
+    background: #e48989; }
 
   .container {
-    padding: 0; /* Remove side padding to go edge to edge */
+    padding: 0; 
     width: 100%;
   }
 
@@ -597,8 +596,8 @@ footer {
   .card,
   .card.compact,
   .full-width {
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
+    max-width: 90%;
   }
 
   .card h2 {
@@ -638,8 +637,8 @@ footer {
   }
 
   .submit-btn {
-    font-size: 0.85rem;
-    padding: 0.5rem;
+    font-size: 0.70rem;
+    padding: 0.3rem;
   }
 
   .footer-content {

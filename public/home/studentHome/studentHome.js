@@ -8,13 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role');
   const city = localStorage.getItem('city');
+  const ownerHome = document.getElementById('ownerHome');
+  const myRoom = document.getElementById('myRoom');
   let currentPage = 1;
   let currentLimit = parseInt(limitSelect.value) || 10;
   let currentSearch = '';
 
-  if (!token || role !== 'student') {
+  if (!token) {
     window.location.href = '../../login/login.html';
     return;
+  }
+
+  if(role==='student'){
+    myRoom.hidden=false;
+  }
+  else if(role==='owner'){
+    ownerHome.hidden=false;
   }
 
   const logoutBtn = document.querySelector('.logout-btn');
