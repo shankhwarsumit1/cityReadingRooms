@@ -199,20 +199,10 @@ const getAllReadingRooms = async (req, res) => {
       search
     } = req.query;
     const skip = (page - 1) * limit;
-
-    if (
-      !userLocation ||
-      !userLocation.type ||
-      !Array.isArray(userLocation.coordinates) ||
-      userLocation.coordinates.length != 2) {
-      return res.status(400).json({
-        success: false,
-        message: "user location is invalid"
-      });
-    }
     const pipeline = [];
 
-    pipeline.push({
+    if (userLocation){
+pipeline.push({
       $geoNear: {
         near: {
           type: "Point",
@@ -225,6 +215,13 @@ const getAllReadingRooms = async (req, res) => {
         }
       },
     });
+    }else if (userCity) {
+      pipeline.push({
+        $match: {
+          city: userCity
+        },
+      });
+    }
 
     if (search) {
       pipeline.push({

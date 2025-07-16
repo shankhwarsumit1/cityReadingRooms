@@ -6,18 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let latitude, longitude;
 
 
-  if (navigator.geolocation) {
+
+
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    try {
+    messageDiv.textContent = '';
+        if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
         (position) => { latitude = position.coords.latitude; longitude = position.coords.longitude; },
       (error) => { console.error('Geolocation error:', error);});
   } else {
     locationInput.value = 'Geolocation not supported';
   }
-
-  signupForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    messageDiv.textContent = '';
-
     const formData = new FormData(signupForm);
     const data = {
       name: formData.get('name'),
@@ -32,8 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         coordinates: [latitude, longitude]
       }
     };
-
-    try {
       const response = await axios.post(URL, data)
         const result = response.data;
       if (result.success) {
