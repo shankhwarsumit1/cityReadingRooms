@@ -1,1 +1,2 @@
-BASE_URL = "https://13.201.254.156:5000";
+
+BASE_URL = "https://www.cityreadingrooms.shop";
