@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messageDiv.classList.add('error');
       }
     } catch (error) {
-      messageDiv.textContent = error.response?.data?.error || 'An error occurred. Please try again.';
+      messageDiv.textContent = error;
       messageDiv.classList.add('error');
     }
   });
