@@ -41,7 +41,7 @@ const createOrder = async (req, res) => {
                 "plan":plan
             }
         });
-
+       console.log(plan,order.notes);
         const payment = new PaymentModel({
             userId: user._id,
             orderId: order.id,
@@ -94,7 +94,7 @@ const verifyPayment = async (req, res) => {
         seat.nextDueDate = 
         plan === "monthly" ? 
         new Date(feePaymentDate.setMonth(feePaymentDate.getMonth()+1)):
-        new Date(feePaymentDate.setMonth(feePaymentDate.getMonth()+1));
+        new Date(feePaymentDate.setMonth(feePaymentDate.getMonth()+3));
         
         seat.status = 'reserved';
         seat.studentId = userId;
@@ -120,7 +120,7 @@ const verifyPayment = async (req, res) => {
         await session.abortTransaction();
         console.log(err);
         res.status(500).json({success:false,
-            error:error.message
+            error:err.message
         })
     }finally{
         session.endSession();

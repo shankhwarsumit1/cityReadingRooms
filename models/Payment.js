@@ -33,6 +33,10 @@ const paymentSchema = new mongoose.Schema({
         readingRoomId:{
             type:mongoose.Types.ObjectId,
             ref:"ReadingRoom"    
+        },
+        plan:{
+            type:String,
+            enum:['monthly','threeMonths']
         }
     }
 },{timestamps:true

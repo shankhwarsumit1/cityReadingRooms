@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   reservationForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    console.log(planSelect.value);
     const seatId = seatforReservationId;
        const response =await axios.post(`${BASE_URL}/payment/create`,{
       readingRoomId,
