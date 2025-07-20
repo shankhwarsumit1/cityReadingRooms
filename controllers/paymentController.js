@@ -82,7 +82,7 @@ const verifyPayment = async (req, res) => {
         const payment = await PaymentModel.findOne({orderId:paymentDetails.order._id}).session(session);
         payment.status = paymentDetails.status;
         await payment.save({session});
-        
+        if(payment.status==='captured'){
         const userId = paymentDetails.userId 
         const feePaymentDate = Date.now();
         const {seatId,readingRoomId,plan}= paymentDetails.notes;
@@ -111,6 +111,7 @@ const verifyPayment = async (req, res) => {
                 session
             }
         );
+    }
        await session.commitTransaction();
        //return success response to razorpay
        return res.status(200).json({message:"webhook received successfully"});
