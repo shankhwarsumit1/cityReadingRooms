@@ -49,8 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
         messageDiv.classList.add('error');
       }
     } catch (error) {
-      messageDiv.textContent = error;
-      messageDiv.classList.add('error');
+      if(error.response.status===404){
+          messageDiv.textContent = "Incorrect email or password";
+      }
+      else{
+      messageDiv.textContent = error.message;
+      }messageDiv.classList.add('error');
     }
   });
 });

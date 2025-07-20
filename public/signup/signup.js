@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
+            loadingOverlay.classList.add('hidden');
+
       } else {
+          loadingOverlay.classList.add('hidden');
         console.error('Geolocation not supported');
       }
 
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         city: formData.get('city').toLowerCase(),
         location: {
           type: "Point",
-          coordinates: [latitude, longitude]
+          coordinates: [longitude,latitude]
         }
       };
 

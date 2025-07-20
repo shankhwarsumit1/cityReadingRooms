@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="./readingRoomProfile.css">
 </head>
 <body>
-
   <header>
     <div class="container">
       <div class="header-content">
@@ -29,19 +28,60 @@
     <div id="room-content" class="room-content">
       <div class="room-photo-box">
         <img id="room-photo" src="" alt="Reading Room">
-         <div class="owner-details-box">
-         <h3>Owner Details</h3>
-        <div id="owner-info"></div>
-      </div>
+        <div class="owner-details-box">
+          <h3>Owner Details</h3>
+          <div id="owner-info"></div>
+        </div>
       </div>
       <div class="room-details-box">
         <h3>Room Details</h3>
         <div id="room-info"></div>
       </div>
-     
-
+      <div class="vacant-seats-box">
+        <h3>Vacant Seats</h3>
+        <div id="vacant-seats-info" class="seats-scrollable"></div>
+      </div>
     </div>
   </main>
+
+  <!-- Reservation Modal -->
+  <div id="reservation-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close">×</span>
+      <h2>Reserve Seat</h2>
+      <form id="reservation-form">
+        <div class="form-group">
+          <label for="seat-id">Seat</label>
+          <input type="text" id="seat-id" name="seatId" readonly>
+        </div>
+        <div class="form-group">
+          <label for="student-name">Name</label>
+          <input type="text" id="student-name" name="studentName" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="student-phone">Phone</label>
+          <input type="tel" id="student-phone" name="studentPhone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="fee-payment-date">Payment Date</label>
+          <input type="date" id="fee-payment-date" name="feePaymentDate" required>
+        </div>
+        <div class="form-group">
+          <label for="plan">Plan</label>
+          <select id="plan" name="plan" required>
+            <option value="" disabled selected>Select a plan</option>
+            <option value="monthly">Monthly</option>
+            <option value="threeMonths">threeMonths</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fee-amount">Fee Amount (₹)</label>
+          <input type="number" id="fee-amount" name="feeAmount" readonly>
+        </div>
+        <button type="submit" id="pay-now-btn" class="pay-btn">Pay Now</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -72,7 +112,7 @@
       <p class="copyright">© 2025 CityReadingRooms. All rights reserved.</p>
     </div>
   </footer>
-
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="../main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./readingRoomProfile.js"></script>

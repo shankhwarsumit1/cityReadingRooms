@@ -254,9 +254,16 @@ const getAllReadingRooms = async (req, res) => {
     const total = result[0].metadata[0]?.total || 0;
     const totalPages = Math.ceil(total / limit);
 
+    const roomsWithDistanceInKm = result[0].data.map(room => {
+      return {
+        ...room,
+        distanceInKm: room.distance ? (room.distance / 1000).toFixed(2) : null
+      };
+    });
+
     res.status(200).json({
       success: true,
-      readingRooms: result[0].data,
+      readingRooms: roomsWithDistanceInKm,
       pagination: {
         totalResults: total,
         totalPages,

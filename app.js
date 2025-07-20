@@ -6,6 +6,7 @@ const authRouter = require("./routers/authRouter");
 const readingRoomRouter = require("./routers/readingRoomRouter");
 const studentRouter = require("./routers/studentRouter");
 const ownerRouter = require("./routers/ownerRouter");
+const paymentRouter = require('./routers/paymentRouter');
 require("dotenv").config();
 const app = express();
 
@@ -16,6 +17,7 @@ app.use("/", authRouter);
 app.use("/", readingRoomRouter);
 app.use("/student", studentRouter);
 app.use("/", ownerRouter);
+app.use('/',paymentRouter);
 mongoose.connect(process.env.DBURL)
   .then(()=>{
     console.log("db connected");
