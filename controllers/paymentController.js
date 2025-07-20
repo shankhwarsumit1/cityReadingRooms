@@ -86,6 +86,7 @@ const verifyPayment = async (req, res) => {
         if(payment.status==='captured'){
         const userId = paymentDetails.userId 
         const feePaymentDate = Date.now();
+        console.log(paymentDetails);
         const {seatId,readingRoomId,plan}= paymentDetails.notes;
           if (!seatId || !readingRoomId || !plan || !userId) {
          throw new Error('Missing seatId, readingRoomId, plan, or userId');
