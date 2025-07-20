@@ -52,7 +52,7 @@ const createOrder = async (req, res) => {
         });
 
         const savedPayment = await payment.save();
-        res.status(201).json({
+       return res.status(201).json({
             success: true,
             savedPayment,
             keyId: process.env.RAZORPAY_KEY_ID
