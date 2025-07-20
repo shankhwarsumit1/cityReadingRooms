@@ -84,7 +84,7 @@ const verifyPayment = async (req, res) => {
         payment.status = paymentDetails.status;
         await payment.save({session});
         if(payment.status==='captured'){
-        const userId = paymentDetails.userId 
+        const userId = payment.userId;
         const feePaymentDate = Date.now();
         console.log(paymentDetails);
         const {seatId,readingRoomId,plan}= paymentDetails.notes;
