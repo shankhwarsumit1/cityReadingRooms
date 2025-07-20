@@ -80,7 +80,7 @@ const verifyPayment = async (req, res) => {
         }
 
         const paymentDetails = req.body.payload.payment.entity;
-        const payment = await PaymentModel.findOne({orderId:paymentDetails.order._id}).session(session);
+        const payment = await PaymentModel.findOne({orderId:paymentDetails.order_id}).session(session);
         payment.status = paymentDetails.status;
         await payment.save({session});
         if(payment.status==='captured'){
