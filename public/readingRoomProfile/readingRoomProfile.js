@@ -209,7 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         theme: {
           color: '#F37254'
-        },
+        }, handler: function (response) {
+    console.log("Payment Success:", response);
+    window.location.href='../myReadingRoom/myReadingRoom.html';
+  }
       };
     
     const rzp = new Razorpay(options);
