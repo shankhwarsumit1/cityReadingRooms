@@ -85,17 +85,18 @@ const verifyPayment = async (req, res) => {
         await payment.save({session});
         if(payment.status==='captured'){
         const userId = payment.userId;
-        const feePaymentDate = Date.now();
+        const feePaymentDate = new Date();
         console.log(paymentDetails);
         const {seatId,readingRoomId,plan}= paymentDetails.notes;
           if (!seatId || !readingRoomId || !plan || !userId) {
          throw new Error('Missing seatId, readingRoomId, plan, or userId');
          }
         const seat = await Seat.findById(seatId).session(session);
+        const clonePaymentDate = new Date(feePaymentDate);
         seat.nextDueDate = 
         plan === "monthly" ? 
-        new Date(feePaymentDate.setMonth(feePaymentDate.getMonth()+1)):
-        new Date(feePaymentDate.setMonth(feePaymentDate.getMonth()+3));
+        new Date(clonePaymentDate.setMonth(clonePaymentDate.getMonth()+1)):
+        new Date(clonePaymentDate.setMonth(clonePaymentDate.getMonth()+3));
         
         seat.status = 'reserved';
         seat.studentId = userId;
